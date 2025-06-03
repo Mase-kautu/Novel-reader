@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novel Reader</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header>
+    <h1>Novel Reader</h1>
+  </header>
+
+  <div class="container">
+    <div class="chapter-title">Chapter 1: The Beginning</div>
+    <div class="novel-text" id="novel-text">
+      It was a quiet night. The stars sparkled overhead as she walked along the forest path, unaware of the destiny that awaited her just beyond the trees...
+    </div>
+
+    <div class="navigation">
+      <button onclick="prevChapter()">Previous</button>
+      <button onclick="nextChapter()">Next</button>
+    </div>
+  </div>
+
+  <script>
+    // Placeholder chapters for demonstration
+    const chapters = [
+      {
+        title: "Chapter 1: The Beginning",
+        content: "It was a quiet night. The stars sparkled overhead as she walked along the forest path..."
+      },
+      {
+        title: "Chapter 2: Into the Woods",
+        content: "The trees loomed high above her, casting long shadows that danced in the moonlight..."
+      },
+      {
+        title: "Chapter 3: The Encounter",
+        content: "A rustle in the bushes stopped her in her tracks. Slowly, a figure emerged..."
+      }
+    ];
+
+    let currentChapter = 0;
+
+    function displayChapter(index) {
+      document.querySelector('.chapter-title').textContent = chapters[index].title;
+      document.getElementById('novel-text').textContent = chapters[index].content;
+    }
+
+    function nextChapter() {
+      if (currentChapter < chapters.length - 1) {
+        currentChapter++;
+        displayChapter(currentChapter);
+      }
+    }
+
+    function prevChapter() {
+      if (currentChapter > 0) {
+        currentChapter--;
+        displayChapter(currentChapter);
+      }
+    }
+  </script>
+</body>
+
+</html>
